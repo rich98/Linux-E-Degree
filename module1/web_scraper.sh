@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Counter for unique file names
-counter=1
-
 # Check if urls.txt exists
 if [[ ! -f urls.txt ]]; then
     echo "Error: urls.txt not found."
@@ -12,6 +9,9 @@ fi
 # Read the file line by line
 while IFS= read -r url
 do
+    # Extract the domain name from the URL for the filename
+    filename=$(echo "$url" | awk -F/ '{print $3}').txt
+
     # Use curl to download the HTML file
     html=$(curl -s --fail "$url")
 
@@ -31,16 +31,15 @@ do
     fi
 
     # Save this output to a file name
-    echo "$text" > "file$counter.txt"
-
-    # Increment the counter
-    ((counter++))
+    echo "$url" > "$filename"
+    echo "$text" >> "$filename"
 done < urls.txt
 
-# Use cat to verify that the script was successful
-for ((i=1; i<counter; i++))
+# Use ls and cat to verify that the script was successful
+for file in *.txt
 do
-    echo "Content of file$i.txt:"
-    cat "file$i.txt"
+    echo "Content of $file:"
+    cat "$file"
     echo
 done
+
