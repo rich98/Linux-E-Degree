@@ -33,3 +33,19 @@ After processing all URLs, the script prints the content of all `.txt` files to 
 
 - The script does not recursively follow links. It only extracts text from the exact URLs provided in `urls.txt`.
 - The script only extracts text within `<h1>` and `<p>` tags. If the web page uses different tags to mark up its main content, the script might not extract all relevant text.
+
+The script uses a for loop. Specifically, it uses a for loop at the end to iterate over all .txt files in the current directory. Here’s the relevant part of the script:
+
+Use ls and cat to verify that the script was successful
+'''
+for file in *.txt
+do
+    echo "Content of $file:"
+    cat "$file"
+    echo
+'''
+
+## For loop
+This for loop prints the content of each .txt file to the console, which helps to verify that the script has successfully extracted text from the URLs. Each iteration of the loop represents one .txt file. The file variable takes on the name of each .txt file in turn, and the cat command prints the content of the current file. The echo command is used to print a newline character after the content of each file for readability.
+
+In addition to the for loop, the script also uses a while loop to read the urls.txt file line by line and process each URL. This is another form of loop used in the script.
