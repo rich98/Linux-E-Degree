@@ -50,5 +50,6 @@ This for loop prints the content of each .txt file to the console, which helps t
 
 In addition to the for loop, the script also uses a while loop to read the urls.txt file line by line and process each URL. This is another form of loop used in the script.
 
-## A python version
+## A Python Version
+https://github.com/rich98/Linux-E-Degree/tree/main/module1/python_version
 
