@@ -49,3 +49,6 @@ do
 This for loop prints the content of each .txt file to the console, which helps to verify that the script has successfully extracted text from the URLs. Each iteration of the loop represents one .txt file. The file variable takes on the name of each .txt file in turn, and the cat command prints the content of the current file. The echo command is used to print a newline character after the content of each file for readability.
 
 In addition to the for loop, the script also uses a while loop to read the urls.txt file line by line and process each URL. This is another form of loop used in the script.
+
+## A python version
+
